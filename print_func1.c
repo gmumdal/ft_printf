@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:49:35 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/20 17:09:33 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:33:44 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	ft_putstr(char *s)
 {
 	int	count;
 
+	if (s == 0)
+	{
+		count = ft_putstr("(null)");
+		return (count);
+	}
 	count = 0;
 	while (s[count] != 0)
 	{

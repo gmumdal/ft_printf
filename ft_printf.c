@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:17:14 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/20 18:13:01 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/21 14:13:03 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,3 @@ int	check_n_print(char c, va_list lst)
 		error += ft_putchar('0');
 	return (error);
 }
-/*
-int	main(void)
-{
-	int a;
-	a = ft_printf("%p %p\n", 0, 0);
-	ft_printf("a = %d\n", a);
-	a = printf("%p %p\n", 0, 0);
-	printf("a = %d\n", a);
-}*/

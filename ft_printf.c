@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:17:14 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/22 22:28:44 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/22 22:51:10 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ char	*make_tmp(t_info *info, va_list lst)
 	else if (info->type == 'u')
 		tmp = make_unsign(info, va_arg(lst, unsigned int));
 	else if (info->type == 'p')
-		tmp = make_addr(info, va_arg(lst, unsigned long)); */
+		tmp = make_addr(info, va_arg(lst, unsigned long));*/
 	else
-		tmp = make_char(info, info->type);
+		tmp = make_normal(info, info->type);
 	if (tmp == 0)
 		return (0);
 	return (tmp);

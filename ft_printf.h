@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:53:37 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/22 22:27:47 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/22 22:52:20 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int		ft_strlen(char *s);
 int		buf_char(t_buf *buf, char c);
 char	*make_char(t_info *info, char c);
 char	*ft_realloc(char *buf, int size);
+char	*make_normal(t_info *info, char c);
 
 #endif

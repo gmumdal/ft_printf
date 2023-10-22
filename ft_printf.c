@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:17:14 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/21 14:13:03 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/22 22:28:44 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,51 +15,46 @@
 int	ft_printf(const char *s, ...)
 {
 	va_list	lst;
+	t_buf	*buf;
 	int		total;
-	int		index;
-	int		error;
 
 	va_start(lst, s);
-	index = 0;
-	total = 0;
-	while (s[index])
+	buf = buf_setting();
+	if (buf == 0)
+		return (-1);
+	if (buf_input(buf, (char *)s, lst) == 0)
 	{
-		if (s[index] != '%')
-			error = ft_putchar(s[index]);
-		else
-			error = check_n_print(s[++index], lst);
-		if (error == -1)
-			return (-1);
-		total += error;
-		index++;
+		free(buf->buffer);
+		free(buf);
+		return (-1);
 	}
+	total = write(1, buf->buffer, ft_strlen(buf->buffer));
+	free(buf->buffer);
+	free(buf);
 	return (total);
 }
 
-int	check_n_print(char c, va_list lst)
+char	*make_tmp(t_info *info, va_list lst)
 {
-	int	error;
+	char	*tmp;
 
-	if (c == 'c')
-		error = ft_putchar(va_arg(lst, int));
-	else if (c == 's')
-		error = ft_putstr(va_arg(lst, char *));
-	else if (c == 'd' || c == 'i')
-		error = ft_putnbr(va_arg(lst, int), 0);
-	else if (c == 'x')
-		error = ft_puthexa(va_arg(lst, unsigned int), 0, "0123456789abcdef");
-	else if (c == 'X')
-		error = ft_puthexa(va_arg(lst, unsigned int), 0, "0123456789ABCDEF");
-	else if (c == 'p')
-		error = ft_putaddr(va_arg(lst, unsigned long long),
-				0, "0123456789abcdef");
-	else if (c == 'u')
-		error = ft_putunsign(va_arg(lst, unsigned int), 0);
-	else if (c == '%')
-		error = ft_putchar(c);
+	if (info->type == 'c')
+		tmp = make_char(info, va_arg(lst, int));
+/*	else if (info->type == 's')
+		tmp = make_str(info, va_arg(lst, char *));
+	else if (info->type == 'i' || info->type == 'd')
+		tmp = make_nbr(info, va_arg(lst, int));
+	else if (info->type == 'x')
+		tmp = make_hexa(info, va_arg(lst, unsigned int));
+	else if (info->type == 'X')
+		tmp = make_hexa(info, va_arg(lst, unsigned int));
+	else if (info->type == 'u')
+		tmp = make_unsign(info, va_arg(lst, unsigned int));
+	else if (info->type == 'p')
+		tmp = make_addr(info, va_arg(lst, unsigned long)); */
 	else
+		tmp = make_char(info, info->type);
+	if (tmp == 0)
 		return (0);
-	if (c == 'p' && error == 2)
-		error += ft_putchar('0');
-	return (error);
+	return (tmp);
 }

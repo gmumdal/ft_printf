@@ -1,16 +1,16 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-SRCS = *.c
+SRCS = ft_printf.c
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rsc $@ $(OBJS)
+	ar rsc $@ $^
 
-$(OBJS) :
-	$(CC) $(CFLAGS) -c $(SRCS)
+%.o : %.c
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 clean :
 	rm -rf $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:17:14 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/22 22:51:10 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/24 21:26:43 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_printf(const char *s, ...)
 		free(buf);
 		return (-1);
 	}
-	total = write(1, buf->buffer, ft_strlen(buf->buffer));
+	total = write(1, buf->buffer, buf->index);
 	free(buf->buffer);
 	free(buf);
 	return (total);
@@ -40,11 +40,11 @@ char	*make_tmp(t_info *info, va_list lst)
 
 	if (info->type == 'c')
 		tmp = make_char(info, va_arg(lst, int));
-/*	else if (info->type == 's')
+	else if (info->type == 's')
 		tmp = make_str(info, va_arg(lst, char *));
 	else if (info->type == 'i' || info->type == 'd')
-		tmp = make_nbr(info, va_arg(lst, int));
-	else if (info->type == 'x')
+		tmp = make_nbr(info, va_arg(lst, int), 0, 0);
+/*	else if (info->type == 'x')
 		tmp = make_hexa(info, va_arg(lst, unsigned int));
 	else if (info->type == 'X')
 		tmp = make_hexa(info, va_arg(lst, unsigned int));

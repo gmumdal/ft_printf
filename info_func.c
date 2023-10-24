@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:04:44 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/22 22:25:46 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/24 11:44:16 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_info	*check_option(char **s)
 		return (0);
 	while (is_init(**s, "+-# 0") > -1)
 	{
-		info_option(**s, info);
+		info_option(*s, info);
 		(*s)++;
 	}
 	while (is_init(**s, "0123456789") > -1)
@@ -45,7 +45,7 @@ t_info	*info_init(void)
 	info = (t_info *)malloc(sizeof(t_info));
 	if (info == 0)
 		return (0);
-	info->field = 0;
+	info->field = -1;
 	info->shop = 0;
 	info->left = 0;
 	info->pre = -1;
@@ -56,22 +56,23 @@ t_info	*info_init(void)
 	return (info);
 }
 
-void	info_option(char c, t_info *info)
+void	info_option(char *s, t_info *info)
 {
-	if (c == '+')
+	if (*s == '+')
 		info->plma = 1;
-	else if (c == '-')
+	else if (*s == '-')
 		info->left = 1;
-	else if (c == '#')
+	else if (*s == '#')
 		info->shop = 1;
-	else if (c == ' ')
-		info->blank++;
-	else
+	else if (*s == ' ')
+		info->blank = 1;
+	else if (*s == '0')
 		info->zero = 1;
 }
 
 void	info_field(char **s, t_info *info)
 {
+	info->field = 0;
 	while (is_init(**s, "0123456789") > -1)
 	{
 		info->field = info->field * 10 + (**s - '0');

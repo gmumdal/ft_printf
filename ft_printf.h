@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:53:37 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/22 22:52:20 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/24 21:27:26 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_buf
 {
 	char	*buffer;
-	int		cur;
+	int		index;
 	int		size;
 }	t_buf;
 
@@ -43,16 +43,23 @@ t_info	*check_option(char **s);
 int		buf_join(t_buf *buf, t_info *info, va_list lst);
 char	*make_tmp(t_info *info, va_list lst);
 t_info	*info_init(void);
-void	info_option(char c, t_info *info);
+void	info_option(char *s, t_info *info);
 void	info_field(char **s, t_info *info);
 void	info_pre(char **s, t_info *info);
 int		is_init(char c, char *s);
 t_buf	*buf_setting(void);
-char	*ft_calloc(int count, int size);
+char	*ft_calloc(int count);
 int		ft_strlen(char *s);
 int		buf_char(t_buf *buf, char c);
 char	*make_char(t_info *info, char c);
-char	*ft_realloc(char *buf, int size);
 char	*make_normal(t_info *info, char c);
+char	*make_str(t_info *info, char *s);
+void	ft_strncpy(char *dest, char *src, int count);
+char	*null_return(t_info *info);
+char	*make_nbr(t_info *info, int nbr, char front, int len);
+void	front_n_len(int nbr, int *len, char *front, t_info *info);
+char	*ft_itoa(char front, int len, int nbr);
+void	fill_blank(char *tmp, t_info *info);
+void	ft_swap(char *num, int len, int flag);
 
 #endif

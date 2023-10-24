@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:08:40 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/22 22:28:03 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/24 11:55:13 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ int	is_init(char c, char *s)
 	return (-1);
 }
 
-char	*ft_calloc(int count, int size)
+char	*ft_calloc(int count)
 {
 	char	*tmp;
 	int		i;
 
-	tmp = (char *)malloc(count * size);
+	tmp = (char *)malloc(count);
 	if (tmp == 0)
 		return (0);
 	i = 0;
-	while (i < count * size)
+	while (i < count)
 		tmp[i++] = 0;
 	return (tmp);
 }
@@ -50,19 +50,14 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_realloc(char *buf, int size)
+void	ft_strncpy(char *dest, char *src, int count)
 {
-	char	*tmp;
-	int		i;
+	int	i;
 
-	tmp = ft_calloc(size, 1);
-	if (tmp == 0)
-		return (0);
 	i = 0;
-	while (buf[i])
+	while (i < count)
 	{
-		tmp[i] = buf[i];
+		dest[i] = src[i];
 		i++;
 	}
-	return (tmp);
 }

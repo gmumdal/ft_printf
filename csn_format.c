@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:40:38 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/24 11:55:05 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:01:38 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*make_str(t_info *info, char *s)
 	int		i;
 
 	if (s == NULL)
-		return (null_return(info));
+		s = null_str();
 	len = ft_strlen(s);
 	if (info->pre == -1 || info->pre > len)
 		info->pre = len;
@@ -60,11 +60,10 @@ char	*make_str(t_info *info, char *s)
 	return (tmp);
 }
 
-char	*null_return(t_info *info)
+char	*null_str(void)
 {
 	char	*toss;
 
-	info->field = 6;
 	toss = ft_calloc(7);
 	if (toss == 0)
 		return (0);

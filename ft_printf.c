@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:17:14 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/24 21:26:43 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:57:25 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ char	*make_tmp(t_info *info, va_list lst)
 		tmp = make_str(info, va_arg(lst, char *));
 	else if (info->type == 'i' || info->type == 'd')
 		tmp = make_nbr(info, va_arg(lst, int), 0, 0);
-/*	else if (info->type == 'x')
-		tmp = make_hexa(info, va_arg(lst, unsigned int));
+	else if (info->type == 'x')
+		tmp = make_hexa(info, va_arg(lst, unsigned int), "0123456789abcdefx");
 	else if (info->type == 'X')
-		tmp = make_hexa(info, va_arg(lst, unsigned int));
+		tmp = make_hexa(info, va_arg(lst, unsigned int), "0123456789ABCDEFX");
+	else if (info->type == 'p')
+		tmp = make_hexa(info, va_arg(lst, unsigned long), "0123456789abcdefx");
 	else if (info->type == 'u')
 		tmp = make_unsign(info, va_arg(lst, unsigned int));
-	else if (info->type == 'p')
-		tmp = make_addr(info, va_arg(lst, unsigned long));*/
 	else
 		tmp = make_normal(info, info->type);
 	if (tmp == 0)

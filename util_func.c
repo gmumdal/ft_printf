@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:08:40 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/24 11:55:13 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:23:08 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,19 @@ void	ft_strncpy(char *dest, char *src, int count)
 	while (i < count)
 	{
 		dest[i] = src[i];
+		i++;
+	}
+}
+
+void	fill_blank(char *tmp, t_info *info)
+{
+	int	i;
+
+	i = 0;
+	while (i < info->field)
+	{
+		if (tmp[i] == 0)
+			tmp[i] = ' ';
 		i++;
 	}
 }

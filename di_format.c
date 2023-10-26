@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:23:07 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/24 21:32:56 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:39:05 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,6 @@ char	*make_nbr(t_info *info, int nbr, char front, int len)
 	return (tmp);
 }
 
-void	fill_blank(char *tmp, t_info *info)
-{
-	int	i;
-
-	i = 0;
-	while (i < info->field)
-	{
-		if (tmp[i] == 0)
-			tmp[i] = ' ';
-		i++;
-	}
-}
-
 void	front_n_len(int nbr, int *len, char *front, t_info *info)
 {
 	int	flag;
@@ -71,7 +58,7 @@ void	front_n_len(int nbr, int *len, char *front, t_info *info)
 	flag = 0;
 	if (*front != 0)
 		flag = 1;
-	if (info->pre > -1 && info->pre > *len)
+	if (info->pre > *len)
 		*len = info->pre;
 	if (info->pre == -1 && info->zero == 1 && *len < info->field - flag)
 		*len = info->field - flag;

@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:53:37 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/24 21:27:26 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:59:26 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,17 @@ char	*make_char(t_info *info, char c);
 char	*make_normal(t_info *info, char c);
 char	*make_str(t_info *info, char *s);
 void	ft_strncpy(char *dest, char *src, int count);
-char	*null_return(t_info *info);
+char	*null_str(void);
 char	*make_nbr(t_info *info, int nbr, char front, int len);
 void	front_n_len(int nbr, int *len, char *front, t_info *info);
 char	*ft_itoa(char front, int len, int nbr);
 void	fill_blank(char *tmp, t_info *info);
 void	ft_swap(char *num, int len, int flag);
+char	*make_hexa(t_info *info, unsigned long nbr, char *hexa_base);
+void	hexa_len_flag(unsigned long nbr, t_info *info, int *len, int *flag);
+char	*ft_itoa_hexa(unsigned long nbr, char *hexa_base, t_info *info);
+char	*make_unsign(t_info *info, unsigned int nbr);
+int		unsign_len_check(unsigned int nbr, t_info *info);
+char	*ft_itoa_unsign(unsigned int nbr, t_info *info);
 
 #endif

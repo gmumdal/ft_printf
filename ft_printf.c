@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:17:14 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/26 15:57:25 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:17:02 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*make_tmp(t_info *info, va_list lst)
 	if (info->type == 'c')
 		tmp = make_char(info, va_arg(lst, int));
 	else if (info->type == 's')
-		tmp = make_str(info, va_arg(lst, char *));
+		tmp = make_str(info, va_arg(lst, char *), "(null)");
 	else if (info->type == 'i' || info->type == 'd')
 		tmp = make_nbr(info, va_arg(lst, int), 0, 0);
 	else if (info->type == 'x')

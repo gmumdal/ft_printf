@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:53:37 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/26 15:59:26 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:17:27 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,8 @@ int		ft_strlen(char *s);
 int		buf_char(t_buf *buf, char c);
 char	*make_char(t_info *info, char c);
 char	*make_normal(t_info *info, char c);
-char	*make_str(t_info *info, char *s);
+char	*make_str(t_info *info, char *s1, char *s);
 void	ft_strncpy(char *dest, char *src, int count);
-char	*null_str(void);
 char	*make_nbr(t_info *info, int nbr, char front, int len);
 void	front_n_len(int nbr, int *len, char *front, t_info *info);
 char	*ft_itoa(char front, int len, int nbr);

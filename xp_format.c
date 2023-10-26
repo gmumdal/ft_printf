@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:34:46 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/26 16:05:59 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:23:22 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	hexa_len_flag(unsigned long nbr, t_info *info, int *len, int *flag)
 {
 	if (nbr == 0)
 		*len = 1;
-	else if ((nbr != 0 && info->shop == 1) || info->type == 'p')
+	if ((nbr != 0 && info->shop == 1) || info->type == 'p')
 		*flag = 2;
 	while (nbr != 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:40:38 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/26 15:01:38 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:16:51 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ char	*make_char(t_info *info, char c)
 	return (tmp);
 }
 
-char	*make_str(t_info *info, char *s)
+char	*make_str(t_info *info, char *s1, char *s)
 {
 	char	*tmp;
 	int		len;
 	int		i;
 
-	if (s == NULL)
-		s = null_str();
+	if (s1 != NULL)
+		s = s1;
 	len = ft_strlen(s);
 	if (info->pre == -1 || info->pre > len)
 		info->pre = len;
@@ -58,22 +58,6 @@ char	*make_str(t_info *info, char *s)
 	else if (info->left == 1)
 		ft_strncpy(tmp, s, info->pre);
 	return (tmp);
-}
-
-char	*null_str(void)
-{
-	char	*toss;
-
-	toss = ft_calloc(7);
-	if (toss == 0)
-		return (0);
-	toss[0] = '(';
-	toss[1] = 'n';
-	toss[2] = 'u';
-	toss[3] = 'l';
-	toss[4] = 'l';
-	toss[5] = ')';
-	return (toss);
 }
 
 char	*make_normal(t_info *info, char c)

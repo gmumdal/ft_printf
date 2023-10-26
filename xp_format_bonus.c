@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   xp_format.c                                        :+:      :+:    :+:   */
+/*   xp_format_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 13:34:46 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/26 18:00:42 by hyeongsh         ###   ########.fr       */
+/*   Created: 2023/10/26 17:08:30 by hyeongsh          #+#    #+#             */
+/*   Updated: 2023/10/26 18:10:36 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 char	*make_hexa(t_info *info, unsigned long nbr, char *hexa_base)
 {
@@ -61,7 +61,7 @@ void	hexa_len_flag(unsigned long nbr, t_info *info, int *len, int *flag)
 		if (info->pre > *len)
 			*len = info->pre;
 		if (info->pre == -1 && info->zero == 1
-			&& *len + *flag < info->field - *flag)
+			&& *len < info->field - *flag)
 			*len = info->field - *flag;
 	}
 }

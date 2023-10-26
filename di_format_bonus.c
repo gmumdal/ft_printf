@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   di_format.c                                        :+:      :+:    :+:   */
+/*   di_format_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 17:23:07 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/26 17:23:26 by hyeongsh         ###   ########.fr       */
+/*   Created: 2023/10/26 17:07:17 by hyeongsh          #+#    #+#             */
+/*   Updated: 2023/10/26 17:28:12 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 char	*make_nbr(t_info *info, int nbr, char front, int len)
 {

@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:17:14 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/26 16:17:02 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/10/26 21:49:10 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_printf(const char *s, ...)
 	total = write(1, buf->buffer, buf->index);
 	free(buf->buffer);
 	free(buf);
+	va_end(lst);
 	return (total);
 }
 

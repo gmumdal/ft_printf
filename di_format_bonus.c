@@ -6,7 +6,7 @@
 /*   By: hyeongsh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:07:17 by hyeongsh          #+#    #+#             */
-/*   Updated: 2023/10/26 17:28:12 by hyeongsh         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:03:17 by hyeongsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	front_n_len(int nbr, int *len, char *front, t_info *info)
 		flag = 1;
 	if (info->pre > *len)
 		*len = info->pre;
-	if (info->pre == -1 && info->zero == 1 && *len < info->field - flag)
+	if (info->pre == -1 && info->zero == 1 && info->left == 0 && *len < info->field - flag)
 		*len = info->field - flag;
 }
 
